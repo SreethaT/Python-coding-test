@@ -1,0 +1,33 @@
+
+first_multiple_input = input().rstrip().split()
+n = int(first_multiple_input[0])
+m = int(first_multiple_input[1])
+
+
+matrix = []
+for _ in range(n):
+    matrix_item = input()
+    matrix.append(matrix_item)
+
+# initialise an empty Matrix to store the result
+result = ""
+
+# Iterate through columns from top to bottom
+for col in range(m):
+    alphanumeric_found = False  # Flag to track alphanumeric characters in the column
+
+    # Iterate through rows
+    for row in range(n):
+        char = matrix[row][col]
+
+        # Check if the character is alphanumeric
+        if char.isalnum():
+            result += char  
+            alphanumeric_found = True  
+        elif not alphanumeric_found and char != ' ':
+            result += ' '  
+
+    result += ' '
+
+# Print result
+print(result.strip())  
